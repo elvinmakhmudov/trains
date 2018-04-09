@@ -1,0 +1,5 @@
+{
+    "usage": "input is incorrect, usage: npm run now command.txt plan.txt",
+    "notEnoughPoints": "You have to specify at least 2 node points.",
+    "wrongFormat": "Wrong format."
+}
