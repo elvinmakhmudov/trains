@@ -1,4 +1,4 @@
-export default class Point{
+export default class Node{
     constructor(name) {
         this.name =name;
     }

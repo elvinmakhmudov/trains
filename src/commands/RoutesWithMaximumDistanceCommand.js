@@ -4,7 +4,7 @@ export default class RoutesWithMaximumDistanceCommand {
     }
 
     run() {
-
+        return this.services.routesWithMaximumDistance(this.start, this.end, this.distance);
     }
 
     setPoints(points) {

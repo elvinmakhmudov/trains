@@ -1,7 +1,7 @@
 import Plan from "./Plan/Plan";
 import fs from 'fs';
 import messages from '../messages';
-import Point from "./Point";
+import Node from "./Node";
 
 export default class Map {
     constructor() {
@@ -22,14 +22,14 @@ export default class Map {
             throw new Error(messages.notEnoughPoints);
         } else {
             //initialize start and end points
-            let startP = new Point(line.charAt(0));
-            let endP = new Point(line.charAt(1));
+            let startP = new Node(line.charAt(0));
+            let endP = new Node(line.charAt(1));
             //get the distance between points
             let distance = Number(line.substring(2));
             console.log(line);
             //add start and end points
-            this.plan.addPoint(startP);
-            this.plan.addPoint(endP);
+            this.plan.addNode(startP);
+            this.plan.addNode(endP);
 
             //add corner
             this.plan.addCorner(startP,endP,distance);
@@ -37,6 +37,10 @@ export default class Map {
     }
 
     distance(points) {
+        return this.plan.distance(points);
+    }
 
+    routesWithMaximumDistance(start, end, maxStop) {
+        return this.plan.routesWithMaximumDistance(start, end, maxStop);
     }
 }

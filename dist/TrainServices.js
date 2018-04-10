@@ -25,6 +25,11 @@ var TrainServices = function () {
         value: function distance(points) {
             return this.map.distance(points);
         }
+    }, {
+        key: "routesWithMaximumDistance",
+        value: function routesWithMaximumDistance(start, end, maxStop) {
+            return this.map.routesWithMaximumDistance(start, end, maxStop);
+        }
     }]);
 
     return TrainServices;

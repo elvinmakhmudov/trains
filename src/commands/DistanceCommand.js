@@ -8,7 +8,6 @@ export default class DistanceCommand {
     }
 
     setPoints(points) {
-        console.log(points);
         this.points = points;
     }
 }

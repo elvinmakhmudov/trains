@@ -18,9 +18,9 @@ var _messages = require('../messages');
 
 var _messages2 = _interopRequireDefault(_messages);
 
-var _Point = require('./Point');
+var _Node = require('./Node');
 
-var _Point2 = _interopRequireDefault(_Point);
+var _Node2 = _interopRequireDefault(_Node);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -52,14 +52,14 @@ var Map = function () {
                 throw new Error(_messages2.default.notEnoughPoints);
             } else {
                 //initialize start and end points
-                var startP = new _Point2.default(line.charAt(0));
-                var endP = new _Point2.default(line.charAt(1));
+                var startP = new _Node2.default(line.charAt(0));
+                var endP = new _Node2.default(line.charAt(1));
                 //get the distance between points
                 var distance = Number(line.substring(2));
                 console.log(line);
                 //add start and end points
-                this.plan.addPoint(startP);
-                this.plan.addPoint(endP);
+                this.plan.addNode(startP);
+                this.plan.addNode(endP);
 
                 //add corner
                 this.plan.addCorner(startP, endP, distance);
@@ -67,7 +67,14 @@ var Map = function () {
         }
     }, {
         key: 'distance',
-        value: function distance(points) {}
+        value: function distance(points) {
+            return this.plan.distance(points);
+        }
+    }, {
+        key: 'routesWithMaximumDistance',
+        value: function routesWithMaximumDistance(start, end, maxStop) {
+            return this.plan.routesWithMaximumDistance(start, end, maxStop);
+        }
     }]);
 
     return Map;

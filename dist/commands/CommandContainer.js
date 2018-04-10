@@ -54,23 +54,16 @@ var CommandContainer = function () {
             switch (methodName) {
                 case DISTANCE_OF_ROUTE:
                     return this.distanceOfRoute(items);
-                    break;
                 case SHORTEST_ROUTE_LENGTH:
                     return this.shortestRouteLength(items);
-                    break;
                 case TRIPS_BETWEEN_ITEMS_WITH_MAXIMUM_STOPS:
                     return this.tripsBetweenItemsWithMaximumStops(items);
-                    break;
                 case TRIPS_BETWEEN_ITEMS_WITH_EXACT_STOPS:
                     return this.tripsBetweenItemsWithExactStops(items);
-                    break;
                 case ROUTES_WITH_MAXIMUM_DISTANCE:
                     return this.routesWithMaximumDistance(items);
-                    break;
                 default:
                     throw new Error(_messages2.default.wrongFormat);
-                    break;
-
             }
 
             console.log(this.method);

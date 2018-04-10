@@ -8,26 +8,29 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var DistanceCommand = function () {
-    function DistanceCommand(services) {
-        _classCallCheck(this, DistanceCommand);
+var depthFirstSearch = function () {
+    function depthFirstSearch() {
+        _classCallCheck(this, depthFirstSearch);
 
-        this.services = services;
+        this.stack = [];
     }
 
-    _createClass(DistanceCommand, [{
-        key: "run",
-        value: function run() {
-            return this.services.distance(this.points);
-        }
-    }, {
-        key: "setPoints",
-        value: function setPoints(points) {
-            this.points = points;
+    _createClass(depthFirstSearch, [{
+        key: "search",
+        value: function search(rootNode) {
+            this.stack.push(rootNode);
+            rootNode.visited = true;
+
+            while (this.stack.length !== 0) {
+                var currentNode = this.stack.pop();
+                console.log(currentNode);
+
+                for (var i = 0; i < currentNode.near; i++) {}
+            }
         }
     }]);
 
-    return DistanceCommand;
+    return depthFirstSearch;
 }();
 
-exports.default = DistanceCommand;
+exports.default = depthFirstSearch;

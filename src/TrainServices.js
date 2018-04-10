@@ -11,4 +11,7 @@ export default class TrainServices {
         return this.map.distance(points);
     }
 
+    routesWithMaximumDistance(start, end, maxStop) {
+        return this.map.routesWithMaximumDistance(start, end, maxStop);
+    }
 }

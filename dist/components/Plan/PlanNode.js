@@ -8,26 +8,26 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var DistanceCommand = function () {
-    function DistanceCommand(services) {
-        _classCallCheck(this, DistanceCommand);
+var PlanNode = function () {
+    function PlanNode(node) {
+        _classCallCheck(this, PlanNode);
 
-        this.services = services;
+        this.node = node;
+        console.log(this.node);
+        this.near = {};
     }
 
-    _createClass(DistanceCommand, [{
-        key: "run",
-        value: function run() {
-            return this.services.distance(this.points);
-        }
-    }, {
-        key: "setPoints",
-        value: function setPoints(points) {
-            this.points = points;
+    _createClass(PlanNode, [{
+        key: "distance",
+        set: function set(dis) {
+            this.distance = dis;
+        },
+        get: function get() {
+            return this.distance;
         }
     }]);
 
-    return DistanceCommand;
+    return PlanNode;
 }();
 
-exports.default = DistanceCommand;
+exports.default = PlanNode;

@@ -1,6 +1,7 @@
-export default class PlanPoint{
+export default class PlanNode{
     constructor(node) {
         this.node = node;
+        console.log(this.node);
         this.near = {};
     }
 

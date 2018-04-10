@@ -17,7 +17,9 @@ var RoutesWithMaximumDistanceCommand = function () {
 
     _createClass(RoutesWithMaximumDistanceCommand, [{
         key: "run",
-        value: function run() {}
+        value: function run() {
+            return this.services.routesWithMaximumDistance(this.start, this.end, this.distance);
+        }
     }, {
         key: "setPoints",
         value: function setPoints(points) {
