@@ -9,6 +9,6 @@ export default class ShortestRouteLengthCommand {
     }
 
     run() {
-
+        return this.services.shortestRouteLength(this.start, this.end);
     }
 }

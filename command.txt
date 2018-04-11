@@ -1,2 +1,10 @@
+Distance_of_the_route_between A B C
+Distance_of_the_route_between A D
+Distance_of_the_route_between A D C
 Distance_of_the_route_between A E B C D
-The_number_of_routes_with_maximum_distance_of A B 66
+Distance_of_the_route_between A E D
+Trips_with_maximum_stops_of C C 3
+Trips_with_exact_stops_of A C 4
+Shortest_route_between_items A C
+Shortest_route_between_items B B
+The_number_of_routes_with_maximum_distance_of C C 30

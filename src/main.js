@@ -5,13 +5,13 @@ import CommandContainer from './commands/CommandContainer';
 import Core from './Core';
 
 let args = process.argv;
-if (args.length != 4) {
+if (args.length < 3) {
     console.log(messages.usage);
 } else {
     try {
         //get the arguments
         let command = args[2];
-        let plan = args[3];
+        let plan = args[3] || "plan.txt";
         //initialize map
         let map = new Map();
         map.initialize(plan);
@@ -19,7 +19,6 @@ if (args.length != 4) {
         let services = new TrainServices(map);
         let commandContainer = new CommandContainer(services);
         let core = new Core(commandContainer);
-
         core.run(command);
     } catch (e) {
         console.log(e);

@@ -3,8 +3,8 @@ export default class TrainServices {
         this.map = map;
     }
 
-    shortestPath(start, end) {
-        return this.map.shortestPath(start, end);
+    shortestRouteLength(start, end) {
+        return this.map.shortestRouteLength(start, end);
     }
 
     distance(points) {
@@ -13,5 +13,13 @@ export default class TrainServices {
 
     routesWithMaximumDistance(start, end, maxStop) {
         return this.map.routesWithMaximumDistance(start, end, maxStop);
+    }
+
+    tripsBetweenItemsWithMaximumStops(start, end, maxStop) {
+        return this.map.tripsBetweenItemsWithMaximumStops(start, end, maxStop);
+    }
+
+    tripsBetweenItemsWithExactStops(start, end, exactStops) {
+        return this.map.tripsBetweenItemsWithExactStops(start, end, exactStops);
     }
 }

@@ -22,6 +22,10 @@ var _TripsBetweenItemsWithMaximumStopsCommand = require('./TripsBetweenItemsWith
 
 var _TripsBetweenItemsWithMaximumStopsCommand2 = _interopRequireDefault(_TripsBetweenItemsWithMaximumStopsCommand);
 
+var _TripsBetweenItemsWithExactStopsCommand = require('./TripsBetweenItemsWithExactStopsCommand');
+
+var _TripsBetweenItemsWithExactStopsCommand2 = _interopRequireDefault(_TripsBetweenItemsWithExactStopsCommand);
+
 var _RoutesWithMaximumDistanceCommand = require('./RoutesWithMaximumDistanceCommand');
 
 var _RoutesWithMaximumDistanceCommand2 = _interopRequireDefault(_RoutesWithMaximumDistanceCommand);
@@ -48,7 +52,7 @@ var CommandContainer = function () {
         key: 'add',
         value: function add(commandLine) {
             //divide the line into items
-            var items = commandLine.split(" ");
+            var items = commandLine.split(" ").map(Function.prototype.call, String.prototype.trim);
 
             var methodName = items[0];
             switch (methodName) {
@@ -65,8 +69,6 @@ var CommandContainer = function () {
                 default:
                     throw new Error(_messages2.default.wrongFormat);
             }
-
-            console.log(this.method);
         }
     }, {
         key: 'distanceOfRoute',
@@ -106,7 +108,7 @@ var CommandContainer = function () {
             if (items.length !== 4) {
                 throw new Error(_messages2.default.wrongFormat);
             }
-            var command = new TripsBetweenItemsWithExactStopsCommand(this.services);
+            var command = new _TripsBetweenItemsWithExactStopsCommand2.default(this.services);
             command.setPoints(items);
             command.setStopCount(items[3]);
             return command;
@@ -118,7 +120,7 @@ var CommandContainer = function () {
                 throw new Error(_messages2.default.wrongFormat);
             }
             var command = new _RoutesWithMaximumDistanceCommand2.default(this.services);
-            command.setPoints(items);
+            command.setPoints(items[1], items[2]);
             command.setDistance(items[3]);
             return command;
         }

@@ -1,3 +1,5 @@
+import Node from './../components/Node';
+
 export default class RoutesWithMaximumDistanceCommand {
     constructor(services) {
         this.services = services;
@@ -7,12 +9,12 @@ export default class RoutesWithMaximumDistanceCommand {
         return this.services.routesWithMaximumDistance(this.start, this.end, this.distance);
     }
 
-    setPoints(points) {
-        this.start = points[1];
-        this.end = points[2];
+    setPoints(start, end) {
+        this.start = start;
+        this.end = end;
     }
 
-    setDistance(distance) {
-        this.distance = distance;
+    setDistance(dis) {
+        this.distance =dis;
     }
 }

@@ -56,7 +56,6 @@ var Map = function () {
                 var endP = new _Node2.default(line.charAt(1));
                 //get the distance between points
                 var distance = Number(line.substring(2));
-                console.log(line);
                 //add start and end points
                 this.plan.addNode(startP);
                 this.plan.addNode(endP);
@@ -74,6 +73,21 @@ var Map = function () {
         key: 'routesWithMaximumDistance',
         value: function routesWithMaximumDistance(start, end, maxStop) {
             return this.plan.routesWithMaximumDistance(start, end, maxStop);
+        }
+    }, {
+        key: 'tripsBetweenItemsWithMaximumStops',
+        value: function tripsBetweenItemsWithMaximumStops(start, end, maxStop) {
+            return this.plan.tripsBetweenItemsWithMaximumStops(start, end, maxStop);
+        }
+    }, {
+        key: 'tripsBetweenItemsWithExactStops',
+        value: function tripsBetweenItemsWithExactStops(start, end, exactStop) {
+            return this.plan.tripsBetweenItemsWithExactStops(start, end, exactStop);
+        }
+    }, {
+        key: 'shortestRouteLength',
+        value: function shortestRouteLength(start, end) {
+            return this.plan.shortestRouteLength(start, end);
         }
     }]);
 

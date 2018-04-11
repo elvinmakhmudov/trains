@@ -4,7 +4,7 @@ export default class TripsBetweenItemsWithMaximumStopsCommand {
     }
 
     run() {
-
+        return this.services.tripsBetweenItemsWithMaximumStops(this.start, this.end, this.stopCount);
     }
     
     setPoints(points) {

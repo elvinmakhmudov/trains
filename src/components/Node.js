@@ -1,6 +1,6 @@
-export default class Node{
+export default class Node {
     constructor(name) {
-        this.name =name;
+        this.name = name;
     }
 
     toString() {

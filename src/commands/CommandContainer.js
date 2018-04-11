@@ -2,6 +2,7 @@ import messages from './../messages';
 import DistanceCommand from './DistanceCommand';
 import ShortestRouteLengthCommand from './ShortestRouteLengthCommand';
 import TripsBetweenItemsWithMaximumStopsCommand from './TripsBetweenItemsWithMaximumStopsCommand';
+import TripsBetweenItemsWithExactStopsCommand from './TripsBetweenItemsWithExactStopsCommand';
 import RoutesWithMaximumDistanceCommand from './RoutesWithMaximumDistanceCommand';
 
 //switch cases
@@ -18,7 +19,7 @@ export default class CommandContainer {
 
     add(commandLine) {
         //divide the line into items
-        let items = commandLine.split(" ");
+        let items = commandLine.split(" ").map(Function.prototype.call, String.prototype.trim);
 
         let methodName = items[0];
         switch(methodName) {
@@ -35,9 +36,6 @@ export default class CommandContainer {
             default:
                 throw new Error(messages.wrongFormat);
         }
-
-
-        console.log(this.method);
     }
 
     distanceOfRoute(items) {
@@ -84,7 +82,7 @@ export default class CommandContainer {
             throw new Error(messages.wrongFormat);
         } 
         let command = new RoutesWithMaximumDistanceCommand(this.services);
-        command.setPoints(items);
+        command.setPoints(items[1],items[2]);
         command.setDistance(items[3]);
         return command;
     }

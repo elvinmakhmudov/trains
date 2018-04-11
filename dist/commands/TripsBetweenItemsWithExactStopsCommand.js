@@ -17,7 +17,9 @@ var TripsBetweenItemsWithExactStopsCommand = function () {
 
     _createClass(TripsBetweenItemsWithExactStopsCommand, [{
         key: "run",
-        value: function run() {}
+        value: function run() {
+            return this.services.tripsBetweenItemsWithExactStops(this.start, this.end, this.stopCount);
+        }
     }, {
         key: "setPoints",
         value: function setPoints(points) {

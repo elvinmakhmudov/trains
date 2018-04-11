@@ -23,13 +23,13 @@ var _Core2 = _interopRequireDefault(_Core);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var args = process.argv;
-if (args.length != 4) {
+if (args.length < 3) {
     console.log(_messages2.default.usage);
 } else {
     try {
         //get the arguments
         var command = args[2];
-        var plan = args[3];
+        var plan = args[3] || "plan.txt";
         //initialize map
         var map = new _Map2.default();
         map.initialize(plan);
@@ -37,7 +37,6 @@ if (args.length != 4) {
         var services = new _TrainServices2.default(map);
         var commandContainer = new _CommandContainer2.default(services);
         var core = new _Core2.default(commandContainer);
-
         core.run(command);
     } catch (e) {
         console.log(e);

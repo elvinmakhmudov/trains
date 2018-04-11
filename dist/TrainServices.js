@@ -16,9 +16,9 @@ var TrainServices = function () {
     }
 
     _createClass(TrainServices, [{
-        key: "shortestPath",
-        value: function shortestPath(start, end) {
-            return this.map.shortestPath(start, end);
+        key: "shortestRouteLength",
+        value: function shortestRouteLength(start, end) {
+            return this.map.shortestRouteLength(start, end);
         }
     }, {
         key: "distance",
@@ -29,6 +29,16 @@ var TrainServices = function () {
         key: "routesWithMaximumDistance",
         value: function routesWithMaximumDistance(start, end, maxStop) {
             return this.map.routesWithMaximumDistance(start, end, maxStop);
+        }
+    }, {
+        key: "tripsBetweenItemsWithMaximumStops",
+        value: function tripsBetweenItemsWithMaximumStops(start, end, maxStop) {
+            return this.map.tripsBetweenItemsWithMaximumStops(start, end, maxStop);
+        }
+    }, {
+        key: "tripsBetweenItemsWithExactStops",
+        value: function tripsBetweenItemsWithExactStops(start, end, exactStops) {
+            return this.map.tripsBetweenItemsWithExactStops(start, end, exactStops);
         }
     }]);
 

@@ -23,7 +23,9 @@ var ShortestRouteLengthCommand = function () {
         }
     }, {
         key: "run",
-        value: function run() {}
+        value: function run() {
+            return this.services.shortestRouteLength(this.start, this.end);
+        }
     }]);
 
     return ShortestRouteLengthCommand;

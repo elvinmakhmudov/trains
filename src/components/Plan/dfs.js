@@ -1,18 +1,29 @@
-export default class depthFirstSearch {
-    constructor() {
-        this.stack = [];
+import messages from '../../messages'
+export default class DeepFirstSearch {
+    constructor(plan) {
+        this.plan = plan;
     }
-    search(rootNode) {
-        this.stack.push(rootNode);
-        rootNode.visited = true;
+    search(currentNode, filter, stopCallback, route) {
+        let total = 0;
 
-        while (this.stack.length !== 0) {
-            let currentNode = this.stack.pop();
-            console.log(currentNode)
+        if (filter(route)) {
+            total++;
+        }
 
-            for(let i=0;i<currentNode.near;i++) {
-                if(currentNode.near[i].)
+        let obj = this.plan[currentNode].near;
+        for (var key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                route.add(obj[key], obj[key].distance);
+                if(stopCallback(route)) {
+                    route.removeLast(obj[key].distance);
+                    continue;
+                } else {
+                    total += this.search(key, filter, stopCallback, route);
+                }
+                route.removeLast(obj[key].distance);
             }
         }
+        return total;
     }
+
 }

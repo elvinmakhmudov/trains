@@ -1,3 +1,7 @@
 {
-    "usage": "input is incorrect, usage: npm run now command.txt plan.txt"
+    "usage": "input is incorrect, usage: npm run now command.txt plan.txt",
+    "notEnoughPoints": "You have to specify at least 2 node points.",
+    "wrongFormat": "Wrong format.",
+    "noSuchCorner": "NO SUCH ROUTE",
+    "noSuchRoute":"The route does not exist."
 }

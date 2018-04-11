@@ -17,7 +17,9 @@ var TripsBetweenItemsWithMaximumStopsCommand = function () {
 
     _createClass(TripsBetweenItemsWithMaximumStopsCommand, [{
         key: "run",
-        value: function run() {}
+        value: function run() {
+            return this.services.tripsBetweenItemsWithMaximumStops(this.start, this.end, this.stopCount);
+        }
     }, {
         key: "setPoints",
         value: function setPoints(points) {

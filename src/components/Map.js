@@ -26,7 +26,6 @@ export default class Map {
             let endP = new Node(line.charAt(1));
             //get the distance between points
             let distance = Number(line.substring(2));
-            console.log(line);
             //add start and end points
             this.plan.addNode(startP);
             this.plan.addNode(endP);
@@ -42,5 +41,17 @@ export default class Map {
 
     routesWithMaximumDistance(start, end, maxStop) {
         return this.plan.routesWithMaximumDistance(start, end, maxStop);
+    }
+
+    tripsBetweenItemsWithMaximumStops(start, end, maxStop) {
+        return this.plan.tripsBetweenItemsWithMaximumStops(start, end, maxStop);
+    }
+
+    tripsBetweenItemsWithExactStops(start, end, exactStop) {
+        return this.plan.tripsBetweenItemsWithExactStops(start, end, exactStop);
+    }
+
+    shortestRouteLength(start, end) {
+        return this.plan.shortestRouteLength(start, end);
     }
 }

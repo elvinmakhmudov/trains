@@ -4,7 +4,7 @@ export default class TripsBetweenItemsWithExactStopsCommand {
     }
 
     run() {
-
+        return this.services.tripsBetweenItemsWithExactStops(this.start, this.end, this.stopCount);
     }
     
     setPoints(points) {
