@@ -1,7 +1,7 @@
 Trains app.
 
 
-You have to have Node.js to be able to run the code. The source code of the app is in "src" folder. It is written in ES6 but because Node.js doesn't currently support ES6 it is converted to ES5 using babel. Converted code is in the folder "dist". 
+You have to have Node.js to be able to run the code. The source code of the app is in "src" folder. It is written in ES6 but due to the reason that Node.js doesn't currently support ES6 it is converted to ES5 using babel. Converted code is in the folder "dist". 
 
 To run the application follow these steps:
 
