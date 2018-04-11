@@ -29,7 +29,7 @@ if (args.length < 3) {
     try {
         //get the arguments
         var command = args[2];
-        var plan = args[3] || "plan.txt";
+        var plan = args[3] || "map.txt";
         //initialize map
         var map = new _Map2.default();
         map.initialize(plan);

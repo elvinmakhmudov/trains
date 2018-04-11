@@ -51,8 +51,10 @@ var CommandContainer = function () {
     _createClass(CommandContainer, [{
         key: 'add',
         value: function add(commandLine) {
-            //divide the line into items
-            var items = commandLine.split(" ").map(Function.prototype.call, String.prototype.trim);
+            //divide the line into items and remove extra spaces
+            var items = commandLine.split(" ").map(Function.prototype.call, String.prototype.trim).filter(function (x) {
+                return !!x ? x : null;
+            });
 
             var methodName = items[0];
             switch (methodName) {

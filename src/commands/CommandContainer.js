@@ -18,11 +18,11 @@ export default class CommandContainer {
     }
 
     add(commandLine) {
-        //divide the line into items
-        let items = commandLine.split(" ").map(Function.prototype.call, String.prototype.trim);
+        //divide the line into items and remove extra spaces
+        let items = commandLine.split(" ").map(Function.prototype.call, String.prototype.trim).filter((x) => !!x ? x : null);
 
         let methodName = items[0];
-        switch(methodName) {
+        switch (methodName) {
             case DISTANCE_OF_ROUTE:
                 return this.distanceOfRoute(items);
             case SHORTEST_ROUTE_LENGTH:
@@ -39,18 +39,18 @@ export default class CommandContainer {
     }
 
     distanceOfRoute(items) {
-        if(items.length < 2) {
+        if (items.length < 2) {
             throw new Error(messages.wrongFormat);
-        } 
+        }
         let command = new DistanceCommand(this.services);
         command.setPoints(items.slice(1))
         return command;
     }
 
     shortestRouteLength(items) {
-        if(items.length !== 3) {
+        if (items.length !== 3) {
             throw new Error(messages.wrongFormat);
-        } 
+        }
         let command = new ShortestRouteLengthCommand(this.services);
         command.setPoints(items);
 
@@ -58,9 +58,9 @@ export default class CommandContainer {
     }
 
     tripsBetweenItemsWithMaximumStops(items) {
-        if(items.length !== 4) {
+        if (items.length !== 4) {
             throw new Error(messages.wrongFormat);
-        } 
+        }
         let command = new TripsBetweenItemsWithMaximumStopsCommand(this.services);
         command.setPoints(items);
         command.setStopCount(items[3]);
@@ -68,9 +68,9 @@ export default class CommandContainer {
     }
 
     tripsBetweenItemsWithExactStops(items) {
-        if(items.length !== 4) {
+        if (items.length !== 4) {
             throw new Error(messages.wrongFormat);
-        } 
+        }
         let command = new TripsBetweenItemsWithExactStopsCommand(this.services);
         command.setPoints(items);
         command.setStopCount(items[3]);
@@ -78,11 +78,11 @@ export default class CommandContainer {
     }
 
     routesWithMaximumDistance(items) {
-        if(items.length !== 4) {
+        if (items.length !== 4) {
             throw new Error(messages.wrongFormat);
-        } 
+        }
         let command = new RoutesWithMaximumDistanceCommand(this.services);
-        command.setPoints(items[1],items[2]);
+        command.setPoints(items[1], items[2]);
         command.setDistance(items[3]);
         return command;
     }

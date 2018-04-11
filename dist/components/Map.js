@@ -40,22 +40,25 @@ var Map = function () {
             var _this = this;
 
             //read the plan and validate each line
-            var lines = _fs2.default.readFileSync(planPath, 'utf-8').split('\n').filter(function (line) {
+            _fs2.default.readFileSync(planPath, 'utf-8').split('\n').filter(function (line) {
                 return _this.validateAndParse(line);
             });
         }
     }, {
         key: 'validateAndParse',
         value: function validateAndParse(line) {
+            var items = line.split(" ").map(Function.prototype.call, String.prototype.trim).filter(function (x) {
+                return !!x ? x : null;
+            });
             //if there are 1 point throw an error
             if (line.length < 2) {
                 throw new Error(_messages2.default.notEnoughPoints);
             } else {
                 //initialize start and end points
-                var startP = new _Node2.default(line.charAt(0));
-                var endP = new _Node2.default(line.charAt(1));
+                var startP = new _Node2.default(items[0]);
+                var endP = new _Node2.default(items[1]);
                 //get the distance between points
-                var distance = Number(line.substring(2));
+                var distance = Number(items[2]);
                 //add start and end points
                 this.plan.addNode(startP);
                 this.plan.addNode(endP);

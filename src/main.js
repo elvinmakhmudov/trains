@@ -11,7 +11,7 @@ if (args.length < 3) {
     try {
         //get the arguments
         let command = args[2];
-        let plan = args[3] || "plan.txt";
+        let plan = args[3] || "map.txt";
         //initialize map
         let map = new Map();
         map.initialize(plan);
